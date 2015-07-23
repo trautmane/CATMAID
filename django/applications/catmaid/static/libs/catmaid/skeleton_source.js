@@ -8,6 +8,11 @@
   var SkeletonSource = function() {};
 
   SkeletonSource.prototype = {};
+  CATMAID.Events.extend(SkeletonSource.prototype);
+
+  SkeletonSource.EVENT_SOURCE_REMOVED = "skeleton_source_removed";
+  SkeletonSource.EVENT_SOURCE_UPDATED = "skeleton_source_updated";
+  SkeletonSource.EVENT_MODELS_CHANGED = "skeleton_source_models_changed";
 
   SkeletonSource.prototype.registerSource = function() {
     CATMAID.skeletonListSources.add(this);
