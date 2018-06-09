@@ -125,6 +125,11 @@ LOGGING = {
             'level': 'INFO',
             'propagate': True,
         },
+        'catmaid.control.janelia_render': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
     },
 }
 
@@ -408,4 +413,11 @@ CATMAID_HTTP_AUTH_PASS = None
 
 # Whether or not to create default data views in the initial migration. This is
 # mainly useful for setups using the JaneliaRender or DVID middleware.
-CREATE_DEFAULT_DATAVIEWS = True
+CREATE_DEFAULT_DATAVIEWS = False
+
+MIDDLEWARE += ('catmaid.middleware.JaneliaRenderMiddleware',)
+JANELIA_RENDER_SERVICE_URL = 'http://renderer.int.janelia.org:8080/render-ws/v1'
+JANELIA_RENDER_DEFAULT_STACK_RESOLUTION = (4,4,35)
+JANELIA_RENDER_STACK_TILE_WIDTH = 1024
+JANELIA_RENDER_STACK_TILE_HEIGHT = 1024
+
