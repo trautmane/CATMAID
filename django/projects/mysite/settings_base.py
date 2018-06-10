@@ -128,7 +128,7 @@ LOGGING = {
         'catmaid.control.janelia_render': {
             'handlers': ['console'],
             'level': 'DEBUG',
-            'propagate': True,
+            'propagate': False,
         },
     },
 }
